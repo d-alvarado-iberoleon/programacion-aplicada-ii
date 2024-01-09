@@ -1,15 +1,10 @@
-name: ibero
+name: rise-environment
 channels:
-  - defaults
   - conda-forge
 dependencies:
-  - notebook
+  - python
+  - numpy
+  - matplotlib
+  - pandas
+  - bokeh
   - rise
-  - nbconvert-webpdf
-  - pyqtwebengine
-  - jedi
-  - jupyter_events
-  - jupyter_server
-  - jupyterlab_pygments
-  - jupyterlab
-prefix: C:\Users\alvaradocde\anaconda3\envs\ibero
