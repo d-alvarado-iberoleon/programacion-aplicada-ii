@@ -6,7 +6,7 @@
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <title>clase02_repaso-python slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
-  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.5.0/mermaid.esm.min.mjs';
+  import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
 <!-- General and theme style sheets -->
@@ -7355,6 +7355,10 @@ div.jp-OutputPrompt {
   box-shadow: none;
 }
 
+main {
+  height: 100%;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -7466,7 +7470,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Temario">Temario<a class="anchor-link" href="#Temario">¶</a></h2><img alt="Temario del curso" src="./imgs/temario_s1.png" style="width:85%; margin-left:auto; margin-right:auto;"/>
+<h2 id="Temario">Temario<a class="anchor-link" href="#Temario">¶</a></h2><img alt="Temario del curso" src="imgs/temario_s1.png" style="width:85%; margin-left:auto; margin-right:auto;"/>
 </div>
 </div>
 </div>
@@ -9457,7 +9461,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = false
+            var scroll = true
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')
