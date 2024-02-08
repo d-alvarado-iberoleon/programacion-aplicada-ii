@@ -5,7 +5,7 @@
 <meta content="chrome=1" http-equiv="X-UA-Compatible"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<title>clase04_encapsulamiento-y-polimorfismo slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
+<title>clase05_herencia-abstraccion slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script type="module">
   import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>
@@ -7456,7 +7456,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Programaci%C3%B3n-Aplicada-II">Programación Aplicada II<a class="anchor-link" href="#Programaci%C3%B3n-Aplicada-II">¶</a></h1><h2 id="Clase-04:-Encapsulamiento-y-polimorfismo">Clase 04: Encapsulamiento y polimorfismo<a class="anchor-link" href="#Clase-04:-Encapsulamiento-y-polimorfismo">¶</a></h2><h3 id="Primavera-2024">Primavera 2024<a class="anchor-link" href="#Primavera-2024">¶</a></h3><h4 id="Dra.-Dora-Alvarado">Dra. Dora Alvarado<a class="anchor-link" href="#Dra.-Dora-Alvarado">¶</a></h4><ul>
+<h1 id="Programaci%C3%B3n-Aplicada-II">Programación Aplicada II<a class="anchor-link" href="#Programaci%C3%B3n-Aplicada-II">¶</a></h1><h2 id="Clase-05:-Herencia-y-abstracci%C3%B3n">Clase 05: Herencia y abstracción<a class="anchor-link" href="#Clase-05:-Herencia-y-abstracci%C3%B3n">¶</a></h2><h3 id="Primavera-2024">Primavera 2024<a class="anchor-link" href="#Primavera-2024">¶</a></h3><h4 id="Dra.-Dora-Alvarado">Dra. Dora Alvarado<a class="anchor-link" href="#Dra.-Dora-Alvarado">¶</a></h4><ul>
 <li>27382@iberoleon.edu.mx</li>
 <li>doraelisa.alvaradocarrillo@iberoleon.edu.mx</li>
 </ul>
@@ -7470,38 +7470,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Temario">Temario<a class="anchor-link" href="#Temario">¶</a></h2><img alt="Temario del curso" src="imgs/temario_s3.png" style="width:85%; margin-left:auto; margin-right:auto;"/>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ad3464a9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Contenido">Contenido<a class="anchor-link" href="#Contenido">¶</a></h2><ul>
-<li>Encapsulamiento<ul>
-<li>Motivación</li>
-<li>¿Qué es el encapsulamiento?</li>
-<li>¿Por qué hacer encapsulamiento?</li>
-<li>Atributos|Métodos públicos</li>
-<li>Atributos|Métodos privados</li>
-<li>Métodos setter y getter</li>
-<li>Name Mangling</li>
-</ul>
-</li>
-<li>¿Qué es el polimorfismo?<ul>
-<li>¿Qué es el polimorfimo?</li>
-<li>Polimorfismo con funciones</li>
-<li>Polimorfismo con métodos</li>
-<li>Polimorfismo con sobrecarga de operadores</li>
-<li>Polimorfismo con herencia</li>
-</ul>
-</li>
-<li>Ejercicio</li>
-</ul>
+<h2 id="Temario">Temario<a class="anchor-link" href="#Temario">¶</a></h2><img alt="Temario del curso" src="imgs/temario_s4.png" style="width:85%; margin-left:auto; margin-right:auto;"/>
 </div>
 </div>
 </div>
@@ -7516,149 +7485,404 @@ main {
 </div>
 </div>
 </div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b93a66e">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59ea6ad3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Encapsulamiento:</strong></p>
 <ul>
-<li><p>Vimos que una <strong>clase</strong> es una plantilla que define un tipo de dato compuesto por atributos y métodos, mientras que un <strong>objeto</strong> es una instancia de esa clase en la memoria del programa.</p>
+<li>Oculta detalles internos y restringe acceso directo a ciertos componentes.</li>
+<li>Protege objeto, permite cambios sin afectar funcionamiento externo.</li>
+<li><strong>Atributos/Métodos Públicos:</strong><ul>
+<li>Accesibles desde fuera de la clase.</li>
+<li>Nombres sin dos guiones bajos.</li>
+</ul>
 </li>
-<li><p>Se demostró cómo crear una clase y un objeto en Python, utilizando la palabra clave <code>class</code> y el constructor <code>__init__</code>.</p>
+<li><strong>Atributos/Métodos Privados:</strong><ul>
+<li>Inician con dos guiones bajos (<code>__</code>).</li>
+<li>No accesibles directamente desde fuera de la clase.</li>
+</ul>
 </li>
-<li><p>Se introdujo el concepto de <strong>atributo</strong>, que puede ser de instancia o de clase, y se mostró cómo acceder a ellos.</p>
+<li><strong>Métodos Getter y Setter:</strong><ul>
+<li>Getter: Obtiene valor de atributo privado.</li>
+<li>Setter: Establece valor de atributo privado.</li>
+</ul>
 </li>
-<li><p>Los <strong>métodos</strong> también fueron discutidos, incluyendo métodos de instancia, de clase y estáticos. Se proporcionaron ejemplos de cómo definir y utilizar estos métodos en una clase.</p>
+<li><strong>Name Mangling:</strong><ul>
+<li>Cambio de nombre de atributos privados al nivel de la clase.</li>
+</ul>
 </li>
 </ul>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e856e8b4">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a4b083e7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Encapsulamiento">Encapsulamiento<a class="anchor-link" href="#Encapsulamiento">¶</a></h1><p><a id="encapsulamiento"></a></p>
-<p><img alt="imgs/encapsulamiento.png" src="imgs/encapsulamiento.png"/></p>
+<p><strong>Polimorfismo:</strong></p>
+<ul>
+<li>Capacidad de objetos de distintas clases de responder a misma operación de manera diferente.</li>
+<li><strong>Polimorfismo con Funciones:</strong><ul>
+<li>Funciones aceptan argumentos de tipos diferentes y actúan en consecuencia.</li>
+</ul>
+</li>
+<li><strong>Polimorfismo con Métodos:</strong><ul>
+<li>Clases implementan métodos con mismo nombre pero comportamientos diferentes.</li>
+</ul>
+</li>
+<li><strong>Sobrecarga de Operadores:</strong><ul>
+<li>Implementación de métodos mágicos para operadores específicos.</li>
+</ul>
+</li>
+<li><strong>Polimorfismo con Herencia:</strong></li>
+<li>Subclases heredan de clase base, pueden proporcionar implementaciones propias.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=78be0a90">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Contenido">Contenido<a class="anchor-link" href="#Contenido">¶</a></h2><ul>
+<li>Herencia<ul>
+<li>¿Qué es herencia?<ul>
+<li>Clase Base</li>
+<li>Clase Derivada</li>
+</ul>
+</li>
+<li>¿Por qué usar herencia?</li>
+<li>Tipos de herencia<ul>
+<li>Herencia simple</li>
+<li>Herencia jerárquica</li>
+<li>Herencia múltiple</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Abstracción<ul>
+<li>¿Qué es la abstracción?</li>
+<li>Clases abstractas</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59912c43">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Herencia">Herencia<a class="anchor-link" href="#Herencia">¶</a></h1><p><img alt="imgs/herencia.png" src="imgs/herencia.png"/></p>
 <p><em>Imágenes de los apuntes de <a href="https://nlaredo.tecnm.mx/takeyas/Apuntes/POO/Apuntes/01.-%20Introduccion%20a%20la%20POO.pdf">nlaredo.tecnm.mx</a> y <a href="https://stayfreemagazine.org/polymorphism-explained-simply/">stayfreemagazine.org</a></em></p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=67d45f9e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=370609d4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Motivaci%C3%B3n">Motivación<a class="anchor-link" href="#Motivaci%C3%B3n">¶</a></h2><p><a id="motivacion"></a></p>
-<ul>
-<li><p>Como hemos visto, en Python podemos acceder a los atributos de clase con la palabra reservada <code>self</code> desde dentro de la clase, y con el nombre del objeto/clase, punto, y nombre del atributo desde el exterior (en el programa principal, módulo o en otra clase).</p>
-</li>
-<li><p>No obstante, en algunas ocasiones vamos a <strong>preferir que los atributos y métodos no sean accesibles desde el exterior</strong>, es decir, que sean <strong>privados</strong>.</p>
-</li>
+<h2 id="%C2%BFQu%C3%A9-es-herencia?">¿Qué es herencia?<a class="anchor-link" href="#%C2%BFQu%C3%A9-es-herencia?">¶</a></h2><ul>
+<li>Es el proceso por el cual una clase nueva adquiere los atributos y métodos de una o más clases ya existentes.</li>
 </ul>
+<h3 id="Clase-base"><span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;">Clase base</span><a class="anchor-link" href="#Clase-base">¶</a></h3><ul>
+<li>La(s) clase(s) existente(s) se llama(n) clase(s) <strong>base</strong>.</li>
+<li>También recibe(n) otros nombres como superclase, clase padre o antepasado.</li>
+</ul>
+<h3 id="Clase-derivada"><span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;">Clase derivada</span><a class="anchor-link" href="#Clase-derivada">¶</a></h3><ul>
+<li>La clase recién creada se llama clase <strong>derivada</strong>.</li>
+<li>También se llama con otros nombres como subclase, clase secundaria y descendiente.</li>
+<li>La <strong>clase derivada</strong> hereda los atributos/métodos de la clase base y normalmente contiene atributos/métodos adicionales.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5b729d69">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<img alt="Herencia_Ejemplo1" src="https://www.unipamplona.edu.co/unipamplona/portalIG/home_74/recursos/programacion-orientada-objetos/07042015/herenciaclases.jpeg" style="width:70%; margin-left:auto; margin-right:auto;"/>
+<p><em>Imagen de <a href="https://www.unipamplona.edu.co/unipamplona/portalIG/home_74/recursos/programacion-orientada-objetos/19032014/u2_herencia.jsp">www.unipamplona.edu.co</a></em></p>
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=83478496">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=71daf790">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%C2%BFQu%C3%A9-es-el-encapsulamiento?">¿Qué es el encapsulamiento?<a class="anchor-link" href="#%C2%BFQu%C3%A9-es-el-encapsulamiento?">¶</a></h2><ul>
-<li>Es uno de los pilares de la programación orientada a objetos (OOP).</li>
-<li>Se refiere a la ocultación de los detalles internos de una clase y la restricción del acceso directo a ciertos componentes.</li>
+<h2 id="Sintaxis">Sintaxis<a class="anchor-link" href="#Sintaxis">¶</a></h2><ul>
+<li>En Python, la herencia se implementa mediante el uso del operador ().</li>
+<li>Por ejemplo, para crear una clase derivada de la clase Persona, se puede usar el siguiente código:</li>
+</ul>
+<h3 id="La-funci%C3%B3n-super"><span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;">La función <em>super</em></span><a class="anchor-link" href="#La-funci%C3%B3n-super">¶</a></h3><ul>
+<li>La función <code>super()</code> es una función incorporada que se utiliza para acceder a métodos y atributos de una clase base.</li>
+<li>Se puede usar para llamar a métodos y atributos de la clase base sin tener que especificar explícitamente el nombre de la clase base.</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2fd88821">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%C2%BFPor-qu%C3%A9-hacer-encapsulamiento?">¿Por qué hacer encapsulamiento?<a class="anchor-link" href="#%C2%BFPor-qu%C3%A9-hacer-encapsulamiento?">¶</a></h2><ul>
-<li>Protege un objeto del acceso no deseado mediante código fuera de la clase. EJ: Una aplicación bancaria prohíbe a un cliente cambiar el saldo de una Cuenta.</li>
-<li>Permite cambiar/actualizar la implementación de la clase si es necesario, sin que eso afecte el funcionamiento de la misma. EJ: Podríamos cambiar la lógica detrás de un método, pero su nombre y parámetros no cambian, así que se pueden seguir utilizando de la misma manera.</li>
-<li>Permite restringir el estado de los objetos ( atributos invariantes).</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9cc15736">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Atributos-y-M%C3%A9todos-P%C3%BAblicos"><span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;">Atributos y Métodos Públicos</span><a class="anchor-link" href="#Atributos-y-M%C3%A9todos-P%C3%BAblicos">¶</a></h3><ul>
-<li>Los atributos y métodos <strong>públicos</strong> son accesibles desde fuera de la clase.</li>
-<li>Los atributos y métodos cuyos nombres no comienzan con dos guiones bajos se consideran públicos.</li>
-</ul>
-<h3 id="Atributos-y-M%C3%A9todos-Privados"><span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;">Atributos y Métodos Privados</span><a class="anchor-link" href="#Atributos-y-M%C3%A9todos-Privados">¶</a></h3><ul>
-<li>Un atributo o método se considera <strong>privado</strong> cuando su nombre comienza con dos guiones bajos (<code>__</code>).</li>
-<li>Estos atributos y métodos no son accesibles <em>directamente</em> desde fuera de la clase.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f649aea8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Ejemplo:">Ejemplo:<a class="anchor-link" href="#Ejemplo:">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=88778818">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b735c9d3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># Atributo privado</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">=</span> <span class="n">y</span>  <span class="c1"># Atributo privado</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Clase base</span>
+<span class="k">class</span> <span class="nc">Vehiculo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marca</span> <span class="o">=</span> <span class="n">marca</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelo</span> <span class="o">=</span> <span class="n">modelo</span>
 
-    <span class="k">def</span> <span class="nf">__validar_punto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span> <span class="c1"># Método privado</span>
-        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">otro_punto</span><span class="p">,</span> <span class="n">Punto</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">describir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">marca</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modelo</span><span class="si">}</span><span class="s2">"</span>
 
-<span class="c1"># Crear una instancia de la clase Punto</span>
-<span class="n">punto1</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Clase derivada</span>
+<span class="k">class</span> <span class="nc">Automovil</span><span class="p">(</span><span class="n">Vehiculo</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">tipo_carroceria</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tipo_carroceria</span> <span class="o">=</span> <span class="n">tipo_carroceria</span>
+
+    <span class="k">def</span> <span class="nf">describir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">describir</span><span class="p">()</span><span class="si">}</span><span class="s2">, Tipo de carrocería: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tipo_carroceria</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># Uso de las clases</span>
+<span class="n">auto</span> <span class="o">=</span> <span class="n">Automovil</span><span class="p">(</span><span class="s2">"Toyota"</span><span class="p">,</span> <span class="s2">"Camry"</span><span class="p">,</span> <span class="s2">"Sedán"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">auto</span><span class="o">.</span><span class="n">describir</span><span class="p">())</span>  <span class="c1"># Salida: Toyota Camry, Tipo de carrocería: Sedán</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2cdca7c2">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e58751f3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Intentar acceder directamente a un atributo privado genera un error</strong>:</p>
+<h2 id="%C2%BFPor-qu%C3%A9-usar-herencia?">¿Por qué usar herencia?<a class="anchor-link" href="#%C2%BFPor-qu%C3%A9-usar-herencia?">¶</a></h2><ul>
+<li>La razón principal es para <span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;"><strong>reutilizar código</strong></span>: nos permite obtener propiedades de las clases anteriores.</li>
+<li>Otra razón es que podemos <span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;"><strong>aumentar la complejidad de nuestro código</strong></span>: podemos agregar características adicionales a clases existentes creando una nueva clase que tendrá nuevos atributos/métodos, además de los atributos/métodos adquiridos de la clase base.</li>
+</ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=889ace25">
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e7c5974">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Tipos-de-herencia">Tipos de herencia<a class="anchor-link" href="#Tipos-de-herencia">¶</a></h2><ol>
+<li><strong>Herencia simple:</strong> una clase derivada hereda de una sola clase base.</li>
+<li><strong>Herencia jerárquica:</strong> Una clase derivada hereda de otra clase que, a su vez, hereda de otra clase.</li>
+<li><strong>Herencia múltiple:</strong> una clase derivada hereda de dos o más clases base.</li>
+</ol>
+<p><strong>Nota:</strong> La herencia múltiple puede dar lugar a conflictos de nombres, en caso de que los padres tengan métodos con el mismo nombre.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9d63ad8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="1.-Herencia-simple"><span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;">1. Herencia simple</span><a class="anchor-link" href="#1.-Herencia-simple">¶</a></h2><ul>
+<li>Una clase derivada hereda de una sola clase base.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=89d89a53">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Clase base</span>
+<span class="k">class</span> <span class="nc">Empleado</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">salario</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">salario</span> <span class="o">=</span> <span class="n">salario</span>
+
+    <span class="k">def</span> <span class="nf">calcular_bono</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">salario</span>  <span class="c1"># Bono del 5% del salario</span>
+
+<span class="c1"># Clase derivada</span>
+<span class="k">class</span> <span class="nc">Gerente</span><span class="p">(</span><span class="n">Empleado</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">salario</span><span class="p">,</span> <span class="n">departamento</span><span class="p">):</span>
+        <span class="c1"># Llamamos al constructor de la clase base</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">salario</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">departamento</span> <span class="o">=</span> <span class="n">departamento</span>
+
+    <span class="k">def</span> <span class="nf">calcular_bono</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Los gerentes obtienen un bono adicional del 10%</span>
+        <span class="k">return</span> <span class="mf">0.10</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">salario</span> <span class="o">+</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">calcular_bono</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">describir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> es gerente del departamento </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">departamento</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># Uso de la clase derivada</span>
+<span class="n">gerente1</span> <span class="o">=</span> <span class="n">Gerente</span><span class="p">(</span><span class="s2">"Ana"</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="s2">"Finanzas"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gerente1</span><span class="o">.</span><span class="n">describir</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Salario: $</span><span class="si">{</span><span class="n">gerente1</span><span class="o">.</span><span class="n">salario</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Bono: $</span><span class="si">{</span><span class="n">gerente1</span><span class="o">.</span><span class="n">calcular_bono</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d8bca92f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="2.-Herencia-jer%C3%A1rquica"><span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;">2. Herencia jerárquica</span><a class="anchor-link" href="#2.-Herencia-jer%C3%A1rquica">¶</a></h2><ul>
+<li>Una clase derivada hereda de otra clase que, a su vez, hereda de otra clase.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1ed2a0e3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Clase base</span>
+<span class="k">class</span> <span class="nc">Persona</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edad</span> <span class="o">=</span> <span class="n">edad</span>
+
+    <span class="k">def</span> <span class="nf">presentarse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Me llamo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> y tengo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">edad</span><span class="si">}</span><span class="s2"> años."</span>
+
+<span class="c1"># Clase intermedia</span>
+<span class="k">class</span> <span class="nc">Estudiante</span><span class="p">(</span><span class="n">Persona</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">,</span> <span class="n">curso</span><span class="p">):</span>
+        <span class="c1"># Llamamos al constructor de la clase base</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curso</span> <span class="o">=</span> <span class="n">curso</span>
+
+    <span class="k">def</span> <span class="nf">estudiar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Estoy estudiando en el curso de </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">curso</span><span class="si">}</span><span class="s2">."</span>
+
+<span class="c1"># Clase derivada</span>
+<span class="k">class</span> <span class="nc">EstudianteUniversitario</span><span class="p">(</span><span class="n">Estudiante</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">,</span> <span class="n">curso</span><span class="p">,</span> <span class="n">carrera</span><span class="p">):</span>
+        <span class="c1"># Llamamos al constructor de la clase intermedia</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">,</span> <span class="n">curso</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">carrera</span> <span class="o">=</span> <span class="n">carrera</span>
+
+    <span class="k">def</span> <span class="nf">presentarse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">estudiante_desc</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">presentarse</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">estudiante_desc</span><span class="si">}</span><span class="s2"> Estoy cursando la carrera de </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">carrera</span><span class="si">}</span><span class="s2">."</span>
+
+<span class="c1"># Uso de la clase derivada</span>
+<span class="n">estudiante_universitario</span> <span class="o">=</span> <span class="n">EstudianteUniversitario</span><span class="p">(</span><span class="s2">"Ana"</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">"Matemáticas Avanzadas"</span><span class="p">,</span> <span class="s2">"Ingeniería Informática"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">estudiante_universitario</span><span class="o">.</span><span class="n">presentarse</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">estudiante_universitario</span><span class="o">.</span><span class="n">estudiar</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eefb390d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Herencia-m%C3%BAltiple"><span style="background-color:#DFFF00; margin-left:auto; margin-right:auto; width: 100%;">3. Herencia múltiple</span><a class="anchor-link" href="#3.-Herencia-m%C3%BAltiple">¶</a></h2><ul>
+<li>Una clase derivada hereda de dos o más clases base.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e27256b9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Clases bases</span>
+<span class="k">class</span> <span class="nc">InstrumentoMusical</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">tocar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Tocando el instrumento musical"</span>
+
+<span class="k">class</span> <span class="nc">DispositivoElectronico</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">encender</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Encendiendo el dispositivo electrónico"</span>
+
+<span class="c1"># Clase derivada que hereda de dos clases bases</span>
+<span class="k">class</span> <span class="nc">Teclado</span><span class="p">(</span><span class="n">InstrumentoMusical</span><span class="p">,</span> <span class="n">DispositivoElectronico</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">usar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Usando el teclado"</span>
+
+<span class="c1"># Uso de la clase derivada</span>
+<span class="n">teclado</span> <span class="o">=</span> <span class="n">Teclado</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teclado</span><span class="o">.</span><span class="n">encender</span><span class="p">())</span> <span class="c1"># Salida: Encendiendo el dispositivo electrónico</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teclado</span><span class="o">.</span><span class="n">tocar</span><span class="p">())</span>    <span class="c1"># Salida: Tocando el instrumento musical</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teclado</span><span class="o">.</span><span class="n">usar</span><span class="p">())</span>      <span class="c1"># Salida: Usando el teclado</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb946b53">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Nota:</strong></p>
+<ul>
+<li>La herencia múltiple puede dar lugar a conflictos de nombres, en caso de que los padres tengan métodos con el mismo nombre.</li>
+<li>Python sigue el orden de izquierda a derecha para buscar atributos o métodos en las clases base.</li>
+<li>Si dos clases base tienen un método con el mismo nombre, el método de la clase más a la izquierda se utilizará.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3dee65cf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7666,7 +7890,26 @@ main {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">punto1</span><span class="o">.</span><span class="n">__x</span><span class="p">)</span>  <span class="c1"># Esto generará un error</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Clase base 1</span>
+<span class="k">class</span> <span class="nc">ClaseBase1</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">metodo_comun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Método común de ClaseBase1"</span>
+    
+<span class="c1"># Clase base 2</span>
+<span class="k">class</span> <span class="nc">ClaseBase2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">metodo_comun</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Método común de ClaseBase2"</span>
+
+<span class="c1"># Clase derivada que hereda de ambas clases bases</span>
+<span class="k">class</span> <span class="nc">ClaseDerivada</span><span class="p">(</span><span class="n">ClaseBase1</span><span class="p">,</span> <span class="n">ClaseBase2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">metodo_derivado</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Método específico de ClaseDerivada"</span>
+
+<span class="c1"># Uso de la clase derivada</span>
+<span class="n">instancia_derivada</span> <span class="o">=</span> <span class="n">ClaseDerivada</span><span class="p">()</span>
+
+<span class="c1"># Intentamos llamar al método común, pero hay ambigüedad</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">instancia_derivada</span><span class="o">.</span><span class="n">metodo_comun</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -7678,30 +7921,40 @@ main {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[2], line 1</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">punto1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">__x</span>)  <span style="color: rgb(95,135,135)"># Esto generará un error</span>
-
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: 'Punto' object has no attribute '__x'</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Método común de ClaseBase1
+</pre>
 </div>
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4427ee5a">
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f511a505">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Intentar llamar directamente a un método privado genera un error:</strong></p>
+<h2 id="Abstracci%C3%B3n">Abstracción<a class="anchor-link" href="#Abstracci%C3%B3n">¶</a></h2>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d9157752">
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ad619412">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%C2%BFQu%C3%A9-es-la-abstracci%C3%B3n?">¿Qué es la abstracción?<a class="anchor-link" href="#%C2%BFQu%C3%A9-es-la-abstracci%C3%B3n?">¶</a></h2><ul>
+<li>Se refiere a la capacidad de representar objetos del mundo real en el código de manera simplificada, centrándose en los aspectos relevantes y omitiendo los detalles innecesarios.</li>
+<li>En Python, podemos crear clases para representar objetos y definir atributos y métodos que tengan las propiedades y comportamientos esenciales de esos objetos.</li>
+<li>Ejemplo:</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a8ae86f0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7709,7 +7962,120 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[2], line 1</span>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">punto1</span><span class="o">.</span><span class="n">__validar_punto</span><span class="p">(</span><span class="n">punto1</span><span class="p">)</span>  <span class="c1"># Esto generará un error</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Vehiculo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">marca</span><span class="p">,</span> <span class="n">modelo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marca</span> <span class="o">=</span> <span class="n">marca</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modelo</span> <span class="o">=</span> <span class="n">modelo</span>
+
+    <span class="k">def</span> <span class="nf">obtener_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modelo</span><span class="si">}</span><span class="s2"> de la marca </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">marca</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># Crear un objeto de la clase Vehiculo</span>
+<span class="n">mi_auto</span> <span class="o">=</span> <span class="n">Vehiculo</span><span class="p">(</span><span class="s2">"Toyota"</span><span class="p">,</span> <span class="s2">"Camry"</span><span class="p">)</span>
+
+<span class="c1"># Utilizar el método para obtener información</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mi_auto</span><span class="o">.</span><span class="n">obtener_info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Camry de la marca Toyota
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=27ba53e2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Clases-Abstractas">Clases Abstractas<a class="anchor-link" href="#Clases-Abstractas">¶</a></h2><ul>
+<li>Una clase abstracta es una clase que <strong>no puede ser instanciada directamente y generalmente sirve como una plantilla para clases derivadas</strong>.</li>
+<li>Una clase abstracta puede contener <strong>métodos abstractos</strong>, que son métodos sin implementación, dejando que las clases derivadas proporcionen sus implementaciones.</li>
+<li>En Python, la abstracción se logra mediante el uso del módulo <code>abc</code> (Abstract Base Classes):</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5ab7e760">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">hacer_sonido</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Perro</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hacer_sonido</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"¡Guau, guau!"</span>
+
+<span class="k">class</span> <span class="nc">Gato</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hacer_sonido</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"¡Miau, miau!"</span>
+
+<span class="k">class</span> <span class="nc">Pajaro</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hacer_sonido</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"¡Pío, pío!"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6fe40902">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>En este ejemplo, <code>Animal</code> es una clase abstracta que define un método abstracto <code>hacer_sonido</code>. Las clases derivadas (<code>Perro</code>, <code>Gato</code> y <code>Pájaro</code>) deben proporcionar implementaciones concretas para este método.</li>
+<li>La creación de una instancia de la clase abstracta directamente generaría un error.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f262b59c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Intentar instanciar la clase abstracta genera un error:</strong></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=de9c8607">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">animal_generico</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Genérico"</span><span class="p">)</span>  <span class="c1"># Genera un error</span>
 </pre></div>
 </div>
 </div>
@@ -7724,138 +8090,27 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[2], line 1</span>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>
 <span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[3], line 1</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">punto1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">__validar_punto</span>(punto1)  <span style="color: rgb(95,135,135)"># Esto generará un error</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-intense-fg ansi-bold">In[5], line 1</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> animal_generico <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">Animal</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">"</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">Genérico</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">"</span><span class="ansi-yellow-bg">)</span>  <span style="color: rgb(95,135,135)"># Genera un error</span>
 
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: 'Punto' object has no attribute '__validar_punto'</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0c978a8a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="M%C3%A9todos-Getter-y-Setter">Métodos Getter y Setter<a class="anchor-link" href="#M%C3%A9todos-Getter-y-Setter">¶</a></h3><p>Para acceder o modificar atributos privados, se deben implementar métodos llamados getters y setters.</p>
-<ul>
-<li>Un <strong>getter</strong> es un método que obtiene el valor de un atributo privado.</li>
-<li>Un <strong>setter</strong> es un método que establece el valor de un atributo privado.</li>
-</ul>
-<p>Agreguemos getters y setters para la clase Punto:</p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a474f5a5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Opci%C3%B3n-1-(m%C3%A9todo-tradicional):">Opción 1 (método tradicional):<a class="anchor-link" href="#Opci%C3%B3n-1-(m%C3%A9todo-tradicional):">¶</a></h2>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5b72849a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># Atributo privado</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">=</span> <span class="n">y</span>  <span class="c1"># Atributo privado</span>
-
-    <span class="k">def</span> <span class="nf">__validar_punto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span> <span class="c1"># Método privado</span>
-        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">otro_punto</span><span class="p">,</span> <span class="n">Punto</span><span class="p">)</span>
-
-    <span class="c1"># Getter para obtener la coordenada x</span>
-    <span class="k">def</span> <span class="nf">obtener_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__x</span>
-
-    <span class="c1"># Getter para obtener la coordenada y</span>
-    <span class="k">def</span> <span class="nf">obtener_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span>
-    
-    <span class="c1"># Setter para establecer la coordenada x</span>
-    <span class="k">def</span> <span class="nf">establecer_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuevo_x</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">=</span> <span class="n">nuevo_x</span>
-
-    <span class="c1"># Setter para establecer la coordenada y</span>
-    <span class="k">def</span> <span class="nf">establecer_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuevo_y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">=</span> <span class="n">nuevo_y</span>
-
-    <span class="k">def</span> <span class="nf">calcular_distancia</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span> <span class="c1"># Método público</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__validar_punto</span><span class="p">(</span><span class="n">otro_punto</span><span class="p">):</span>
-            <span class="n">distancia</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">obtener_x</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">__x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">obtener_y</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">distancia</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: El argumento debe ser un objeto de la clase Punto."</span><span class="p">)</span>
-
-<span class="c1"># Crear una instancia de la clase Punto</span>
-<span class="n">punto1</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: Can't instantiate abstract class Animal without an implementation for abstract method 'hacer_sonido'</pre>
 </div>
 </div>
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89d32af0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=954c4390">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Utilizar los métodos getter:</strong></p>
+<p><strong>Crear objetos de las clases derivadas:</strong></p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9f43a6d3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Coordenadas iniciales: </span><span class="si">{</span><span class="n">punto1</span><span class="o">.</span><span class="n">obtener_x</span><span class="p">()</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">punto1</span><span class="o">.</span><span class="n">obtener_y</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Coordenadas iniciales: 1, 2
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=73f7b2a7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Utilizar los métodos setter:</strong></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7241ec42">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d69880f2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7863,25 +8118,26 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[3], line 1</span>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">punto1</span><span class="o">.</span><span class="n">establecer_x</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">punto1</span><span class="o">.</span><span class="n">establecer_y</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">mi_perro</span> <span class="o">=</span> <span class="n">Perro</span><span class="p">(</span><span class="s2">"Buddy"</span><span class="p">)</span>
+<span class="n">mi_gato</span> <span class="o">=</span> <span class="n">Gato</span><span class="p">(</span><span class="s2">"Whiskers"</span><span class="p">)</span>
+<span class="n">mi_pajaro</span> <span class="o">=</span> <span class="n">Pajaro</span><span class="p">(</span><span class="s2">"Tweetie"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=15b2ec1a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89ec8803">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Utilizar los métodos getter para obtener las nuevas coordenadas:</strong></p>
+<p><strong>Utilizar los métodos de abstracción para hacer sonidos</strong></p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9f5cfdd7">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ccf0b695">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7889,7 +8145,9 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[3], line 1</span>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Nuevas coordenadas: </span><span class="si">{</span><span class="n">punto1</span><span class="o">.</span><span class="n">obtener_x</span><span class="p">()</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">punto1</span><span class="o">.</span><span class="n">obtener_y</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">mi_perro</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> hace sonido: </span><span class="si">{</span><span class="n">mi_perro</span><span class="o">.</span><span class="n">hacer_sonido</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">mi_gato</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> hace sonido: </span><span class="si">{</span><span class="n">mi_gato</span><span class="o">.</span><span class="n">hacer_sonido</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">mi_pajaro</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> hace sonido: </span><span class="si">{</span><span class="n">mi_pajaro</span><span class="o">.</span><span class="n">hacer_sonido</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7902,567 +8160,169 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[3], line 1</span>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Nuevas coordenadas: 3, 4
+<pre>Buddy hace sonido: ¡Guau, guau!
+Whiskers hace sonido: ¡Miau, miau!
+Tweetie hace sonido: ¡Pío, pío!
 </pre>
 </div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ec0bb408">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Opci%C3%B3n-2-(usando-el-decorador-@property):">Opción 2 (usando el decorador @property):<a class="anchor-link" href="#Opci%C3%B3n-2-(usando-el-decorador-@property):">¶</a></h2>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=48cde0a7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">PuntoV2</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># Atributo privado</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">=</span> <span class="n">y</span>  <span class="c1"># Atributo privado</span>
-        
-    <span class="k">def</span> <span class="nf">__validar_punto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span> <span class="c1"># Método privado</span>
-        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">otro_punto</span><span class="p">,</span> <span class="n">Punto</span><span class="p">)</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__x</span>
-
-    <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuevo_x</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__x</span> <span class="o">=</span> <span class="n">nuevo_x</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span>
-
-    <span class="nd">@y</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuevo_y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__y</span> <span class="o">=</span> <span class="n">nuevo_y</span>
-
-    <span class="k">def</span> <span class="nf">calcular_distancia</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__validar_punto</span><span class="p">(</span><span class="n">otro_punto</span><span class="p">):</span>
-            <span class="n">distancia</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">__x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">otro_punto</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">__y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">distancia</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: El argumento debe ser un objeto de la clase Punto."</span><span class="p">)</span>
-
-<span class="c1"># Crear una instancia de la clase Punto</span>
-<span class="n">punto2</span> <span class="o">=</span> <span class="n">PuntoV2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=88322d3e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Utilizar los métodos getter:</strong></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b19a84d1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Imprimir los valores de x e y directamente utilizando las propiedades</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Valor de x: </span><span class="si">{</span><span class="n">punto2</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Valor de y: </span><span class="si">{</span><span class="n">punto2</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Valor de x: 1
-Valor de y: 2
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=683aa1ce">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Intentar modificar directamente los atributos no generará un error, pero tampoco modificará el atributo:</strong></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=de90bf9b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">punto2</span><span class="o">.</span><span class="n">__x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Esto no generará un error, pero el atributo no se modifica</span>
-<span class="n">punto2</span><span class="o">.</span><span class="n">__y</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Esto no generará un error, pero el atributo no se modifica</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Valor de x: </span><span class="si">{</span><span class="n">punto2</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Valor de y: </span><span class="si">{</span><span class="n">punto2</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Valor de x: 1
-Valor de y: 2
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ee97c362">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Modificar los atributos utilizando las propiedades (con validación):</strong></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8bacdf30">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">punto2</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">punto2</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d411b2a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Imprimir los valores modificados:</strong></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=336864a3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Valor de x: </span><span class="si">{</span><span class="n">punto2</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Valor de y: </span><span class="si">{</span><span class="n">punto2</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Valor de x: 10
-Valor de y: 20
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=414bfe9f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Name-Mangling"><em>Name Mangling</em><a class="anchor-link" href="#Name-Mangling">¶</a></h3><ul>
-<li><p>Python realiza un cambio de nombre (name mangling) de los atributos privados al nivel de la clase, agregando un prefijo <code>_NombreDeLaClase</code> antes del nombre del atributo.</p>
-</li>
-<li><p>Esto <span style="background-color: #DFFF00">dificulta el acceso a estos atributos desde fuera de la clase, pero no lo impide completamente</span>.</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Ejemplo</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__atributo_privado</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="n">objeto</span> <span class="o">=</span> <span class="n">Ejemplo</span><span class="p">()</span>
-<span class="c1"># Acceso directo al atributo privado utilizando el nombre mangling</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">objeto</span><span class="o">.</span><span class="n">_Ejemplo__atributo_privado</span><span class="p">)</span>
-</pre></div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b3362bc6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Polimorfismo">Polimorfismo<a class="anchor-link" href="#Polimorfismo">¶</a></h1><p><img alt="imgs/polimorfismo.jpeg" src="imgs/polimorfismo.jpeg"/></p>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a0beb706">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%C2%BFQu%C3%A9-es-el-Polimorfismo?">¿Qué es el Polimorfismo?<a class="anchor-link" href="#%C2%BFQu%C3%A9-es-el-Polimorfismo?">¶</a></h2><ul>
-<li>Capacidad de objetos de distintas clases de <strong>responder a la misma operación o mensaje de manera diferente</strong>.</li>
-<li>En Python, el polimorfismo se manifiesta de varias maneras:<ol>
-<li>Con funciones</li>
-<li>Con métodos</li>
-<li>Con sobrecarga de operadores</li>
-<li>Con herencia</li>
-</ol>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=802e650c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-Polimorfismo-con-funciones"><span style="background-color: #DFFF00">1. Polimorfismo con funciones</span><a class="anchor-link" href="#1.-Polimorfismo-con-funciones">¶</a></h2><ul>
-<li>Se puede utilizar polimorfismo en funciones que aceptan argumentos de tipos diferentes y actúan en consecuencia.</li>
-<li>Ejemplo 1:</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sumar</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="n">sumar</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>      <span class="c1"># Imprime: 15</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">sumar</span><span class="p">(</span><span class="s2">"Hola"</span><span class="p">,</span> <span class="s2">" Mundo"</span><span class="p">))</span>  <span class="c1"># Imprime: Hola Mundo</span>
-</pre></div>
-<ul>
-<li>Ejemplo 2:</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># Devuelve la longitud de una cadena o una lista.</span>
-    <span class="k">def</span> <span class="nf">obtener_longitud</span><span class="p">(</span><span class="n">elemento</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
-
-    <span class="n">cadena</span> <span class="o">=</span> <span class="s2">"Hola, mundo"</span>
-    <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-    <span class="n">longitud_cadena</span> <span class="o">=</span> <span class="n">obtener_longitud</span><span class="p">(</span><span class="n">cadena</span><span class="p">)</span>
-    <span class="n">longitud_lista</span> <span class="o">=</span> <span class="n">obtener_longitud</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Longitud de la cadena: </span><span class="si">{</span><span class="n">longitud_cadena</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="c1"># Imprime 11</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Longitud de la lista: </span><span class="si">{</span><span class="n">longitud_lista</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="c1"># Imprime 5</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=05f7c280">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Polimorfismo-con-m%C3%A9todos"><span style="background-color: #DFFF00">2. Polimorfismo con métodos</span><a class="anchor-link" href="#2.-Polimorfismo-con-m%C3%A9todos">¶</a></h2><ul>
-<li>Una clase puede implementar un método con el mismo nombre que otra clase, pero con un comportamiento diferente.</li>
-<li>Esto permite que objetos de distintas clases respondan a la misma llamada de método de manera diferente.</li>
-<li>Ejemplo:</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Perro</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">sonido</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">return</span> <span class="s2">"Guau"</span>
-
-    <span class="k">class</span> <span class="nc">Gato</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">sonido</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">return</span> <span class="s2">"Miau"</span>
-
-    <span class="k">def</span> <span class="nf">hablar</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">animal</span><span class="o">.</span><span class="n">sonido</span><span class="p">()</span>
-
-    <span class="n">perro</span> <span class="o">=</span> <span class="n">Perro</span><span class="p">()</span>
-    <span class="n">gato</span> <span class="o">=</span> <span class="n">Gato</span><span class="p">()</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="n">hablar</span><span class="p">(</span><span class="n">perro</span><span class="p">))</span>  <span class="c1"># Imprime: Guau</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">hablar</span><span class="p">(</span><span class="n">gato</span><span class="p">))</span>   <span class="c1"># Imprime: Miau</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8f8e4680">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Sobrecarga-de-operadores"><span style="background-color: #DFFF00">3. Sobrecarga de operadores</span><a class="anchor-link" href="#3.-Sobrecarga-de-operadores">¶</a></h2><ul>
-<li>Es una forma de polimorfismo que permite a los objetos responder a <strong>operadores</strong> de manera diferente según el contexto.</li>
-<li>La acción de <strong>sobrecargar operadores</strong> se refiere a la implementación de <em>métodos especiales</em> en las clases que creamos, conocidos como <strong>métodos mágicos</strong> o <strong>métodos dunder</strong>.</li>
-</ul>
-<p>Los <span style="background-color: #DFFF00"><strong>métodos mágicos</strong> o <strong>métodos dunder</strong></span> son métodos especiales que tienen nombres que comienzan y terminan con doble guion bajo. Estos métodos son utilizados para realizar operaciones específicas en objetos y son invocados automáticamente por Python en situaciones particulares.</p>
-<table>
-<thead>
-<tr>
-<th>Método</th>
-<th>Descripción</th>
-<th>Ejemplo de Uso</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>__str__(self)</code></td>
-<td>Representación en cadena del objeto</td>
-<td><code>str(obj)</code>, <code>print(obj)</code></td>
-</tr>
-<tr>
-<td><code>__len__(self)</code></td>
-<td>Devuelve la longitud del objeto</td>
-<td><code>len(obj)</code></td>
-</tr>
-<tr>
-<td><code>__add__(self, otro)</code></td>
-<td>Sobrecarga del operador de suma (<code>+</code>)</td>
-<td><code>obj1 + obj2</code></td>
-</tr>
-<tr>
-<td><code>__sub__(self, otro)</code></td>
-<td>Sobrecarga del operador de resta (<code>-</code>)</td>
-<td><code>obj1 - obj2</code></td>
-</tr>
-<tr>
-<td><code>__mul__(self, otro)</code></td>
-<td>Sobrecarga del operador de multiplicación (<code>*</code>)</td>
-<td><code>obj1 * obj2</code></td>
-</tr>
-<tr>
-<td><code>__truediv__(self, otro)</code></td>
-<td>Sobrecarga del operador de división (<code>/</code>)</td>
-<td><code>obj1 / obj2</code></td>
-</tr>
-<tr>
-<td><code>__eq__(self, otro)</code></td>
-<td>Sobrecarga del operador de igualdad (<code>==</code>)</td>
-<td><code>obj1 == obj2</code></td>
-</tr>
-<tr>
-<td><code>__ne__(self, otro)</code></td>
-<td>Sobrecarga del operador de desigualdad (<code>!=</code>)</td>
-<td><code>obj1 != obj2</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=96faafd2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ul>
-<li>Ejemplo:</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5ec4a77e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)"</span>
-
-    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">otro_punto</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">otro_punto</span><span class="p">,</span> <span class="n">Punto</span><span class="p">):</span>
-            <span class="c1"># Sobrecarga del operador de suma para la clase Punto</span>
-            <span class="k">return</span> <span class="n">Punto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">otro_punto</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">otro_punto</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Se espera un objeto de la clase Punto"</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">None</span>
-
-
-<span class="n">punto1</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">punto2</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="c1"># Utilizando el polimorfismo con el método __str__</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Punto 1: </span><span class="si">{</span><span class="n">punto1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Punto 2: </span><span class="si">{</span><span class="n">punto2</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="c1"># Utilizando el polimorfismo con el método __add__</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Punto 1 + Punto 2: </span><span class="si">{</span><span class="n">punto1</span><span class="o">+</span><span class="n">punto2</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Punto 1: (1, 2)
-Punto 2: (3, 4)
-Punto 1 + Punto 2: (4, 6)
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=842a6797">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Polimorfismo-con-herencia"><span style="background-color: #DFFF00">4. Polimorfismo con herencia</span><a class="anchor-link" href="#4.-Polimorfismo-con-herencia">¶</a></h2>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f2dcfdfa">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>... coming soon.</strong></p>
-<ul>
-<li>Una subclase puede heredar de una clase base y proporcionar su propia implementación de los métodos de la clase base.</li>
-<li>Esto permite que los objetos de la subclase se utilicen de manera intercambiable con los objetos de la clase base.</li>
-</ul>
 </div>
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f91ca057">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=edd5b076">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Ejercicio-5:-Encapsulamiento-y-Polimorfismo-con-Vectores-y-Matrices">Ejercicio 5: Encapsulamiento y Polimorfismo con Vectores y Matrices<a class="anchor-link" href="#Ejercicio-5:-Encapsulamiento-y-Polimorfismo-con-Vectores-y-Matrices">¶</a></h3><p>En este ejercicio, aplicaremos los conceptos de encapsulamiento y polimorfismo en las clases <code>Vector</code> y <code>Matriz</code> que hemos desarrollado anteriormente. Asegúrate de seguir las siguientes instrucciones:</p>
-<h4 id="Parte-1:-Encapsulamiento">Parte 1: Encapsulamiento<a class="anchor-link" href="#Parte-1:-Encapsulamiento">¶</a></h4><ol>
-<li><p><strong>Clase Vector:</strong></p>
-<ul>
-<li>Cambia los atributos <code>elementos</code>, <code>dimension</code>, y <code>total_vectores</code> a atributos privados usando el prefijo de doble guion bajo (<code>__</code>).</li>
-<li>Implementa métodos getter y setter para obtener/modificar los valores de estos atributos desde fuera de la clase.</li>
-</ul>
-</li>
-<li><p><strong>Clase Matriz:</strong></p>
-<ul>
-<li>Cambia los atributos <code>elementos</code>, <code>filas</code>, <code>columnas</code> y <code>total_matrices</code> a atributos privados usando el prefijo de doble guion bajo (<code>__</code>).</li>
-<li>Implementa métodos getter y setter para obtener/modificar los valores de estos atributos desde fuera de la clase.</li>
-</ul>
-</li>
-</ol>
-<h4 id="Parte-2:-Polimorfismo">Parte 2: Polimorfismo<a class="anchor-link" href="#Parte-2:-Polimorfismo">¶</a></h4><ol start="3">
-<li><p><strong>Clase Vector:</strong></p>
-<ul>
-<li>Cambia el método <code>suma</code> por el método <code>__add__</code> en la clase <code>Vector</code> para permitir la suma de dos vectores utilizando el operador <code>+</code>. Asegúrate de manejar adecuadamente el caso cuando los vectores no tienen la misma dimensión.</li>
-<li>Implementa un método llamado <code>__mul__</code> que acepte un escalar como argumento y devuelva un nuevo vector que sea el resultado de multiplicar cada elemento del vector por ese escalar.</li>
-<li>Implementa el método <code>__str__</code> para que al imprimir un objeto de la clase <code>Vector</code> se muestre de forma amigable.</li>
-</ul>
-</li>
-<li><p><strong>Clase Matriz:</strong></p>
-<ul>
-<li>Cambia el método <code>suma</code> por <code>__add__</code> en la clase <code>Matriz</code> para permitir la suma de dos matrices utilizando el operador <code>+</code>. Asegúrate de manejar adecuadamente el caso cuando las matrices no tienen las mismas dimensiones.</li>
-<li>Implementa el método <code>__mul__</code> en la clase <code>Matriz</code> que acepte un escalar como argumento y devuelva una nueva matriz que sea el resultado de multiplicar cada elemento de la matriz por ese escalar.</li>
-<li>Implementa el método <code>__str__</code> para que al imprimir un objeto de la clase <code>Matriz</code> se muestre de forma amigable.</li>
-</ul>
-</li>
-</ol>
-<h4 id="Parte-3:-Pruebas">Parte 3: Pruebas<a class="anchor-link" href="#Parte-3:-Pruebas">¶</a></h4><ol start="5">
-<li><p><strong>Pruebas con Vectores:</strong></p>
-<ul>
-<li>Crea instancias de la clase <code>Vector</code> y realiza pruebas para asegurarte de que el encapsulamiento funcione correctamente. Utiliza los métodos getter y setter para obtener/modificar información sobre los vectores.</li>
-<li>Realiza pruebas utilizando el polimorfismo, sumando y multiplicando vectores, y verifica los resultados.</li>
-</ul>
-</li>
-<li><p><strong>Pruebas con Matrices:</strong></p>
-<ul>
-<li>Crea instancias de la clase <code>Matriz</code> y realiza pruebas para asegurarte de que el encapsulamiento funcione correctamente. Utiliza los métodos getter y setter para obtener/modificar información sobre las matrices.</li>
-<li>Realiza pruebas utilizando el polimorfismo, sumando y multiplicando matrices, y verifica los resultados.</li>
-</ul>
-</li>
-</ol>
-<h4 id="Consideraciones">Consideraciones<a class="anchor-link" href="#Consideraciones">¶</a></h4><ul>
-<li><p>Asegúrate de proporcionar mensajes de error apropiados en caso de que las operaciones no sean válidas debido a dimensiones incorrectas, etc.</p>
-</li>
-<li><p>Sube los archivos generados en este ejercicio con el prefijo <code>PA2_Grupo_E05NombreApellido</code>. La parte de código debe entregarse en un archivo con extensión <code>.py</code>.</p>
-</li>
-<li><p>No se revisará código que sea entregado en otros formatos que no correspondan con código de python, por ejemplo <code>.docx</code>, <code>.pdf</code>, <code>.png</code>, etc.</p>
-</li>
-<li><p>En caso de que el código presente errores de ejecución, se penalizará la tarea con una deducción de hasta 50pts, dependiendo de la gravedad del error.</p>
-</li>
-<li><p>En caso de que la/el estudiante utilice código o funciones no vistas en clase, deberá ser capaz de respaldar su código mediante una explicación verbal y/o escrita, en caso de que le sea requerida por la docente de la asignatura. De no cumplir con la explicación de forma satisfactoria, se anulará su trabajo y se pasará el reporte a la coordinación de la carrera.</p>
-</li>
+<h2 id="Ejercicio-06">Ejercicio 06<a class="anchor-link" href="#Ejercicio-06">¶</a></h2><h3 id="Parte-1:-Correcci%C3%B3n-de-C%C3%B3digo">Parte 1: Corrección de Código<a class="anchor-link" href="#Parte-1:-Correcci%C3%B3n-de-C%C3%B3digo">¶</a></h3><ul>
+<li>Corrige los errores en los siguientes códigos y explica brevemente las correcciones realizadas.</li>
 </ul>
 </div>
 </div>
 </div>
-</div></section></section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c045b91b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Persona</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_init_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edad</span> <span class="o">=</span> <span class="n">edad</span>
+
+    <span class="k">def</span> <span class="nf">presentarse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Me llamo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> y tengo </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">edad</span><span class="si">}</span><span class="s2"> años."</span>
+    
+<span class="k">class</span> <span class="nc">Empleado</span><span class="p">(</span><span class="n">Persona</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">salario_base</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__salario_base</span> <span class="o">=</span> <span class="n">salario_base</span>
+
+<span class="k">def</span> <span class="nf">calcular_sueldo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__salario_base</span>
+
+
+<span class="k">class</span> <span class="nc">Gerente</span><span class="p">(</span><span class="n">Empleado</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">salario_base</span><span class="p">,</span> <span class="n">bono</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bono</span> <span class="o">=</span> <span class="n">bono</span>
+
+    <span class="k">def</span> <span class="nf">calcular_sueldo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__salario_base</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bono</span>
+
+
+<span class="c1"># Crear instancias de las clases</span>
+<span class="n">empleado1</span> <span class="o">=</span> <span class="n">Empleado</span><span class="p">(</span><span class="s2">"Juan"</span><span class="p">,</span> <span class="mi">50000</span><span class="p">)</span>
+<span class="n">gerente1</span> <span class="o">=</span> <span class="n">Gerente</span><span class="p">(</span><span class="s2">"Ana"</span><span class="p">,</span> <span class="mi">70000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">)</span>
+
+<span class="c1"># Imprimir sueldos</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sueldo de </span><span class="si">{</span><span class="n">empleado1</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">empleado1</span><span class="o">.</span><span class="n">calcular_sueldo</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sueldo de </span><span class="si">{</span><span class="n">gerente1</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">gerente1</span><span class="o">.</span><span class="n">calcular_sueldo</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Crear una lista de empleados</span>
+<span class="n">empleados</span> <span class="o">=</span> <span class="p">[</span><span class="n">empleado1</span><span class="p">,</span> <span class="n">gerente1</span><span class="p">]</span>
+
+<span class="c1"># Imprimir sueldos de los empleados en la lista</span>
+<span class="k">for</span> <span class="n">empleado</span> <span class="ow">in</span> <span class="n">empleados</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">empleado</span><span class="o">.</span><span class="n">presentarse</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sueldo de </span><span class="si">{</span><span class="n">empleado</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">empleado</span><span class="o">.</span><span class="n">calcular_sueldo</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Departamento de </span><span class="si">{</span><span class="n">gerente1</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">gerente1</span><span class="o">.</span><span class="n">departamento</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=84587098">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">FiguraGeometrica</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_init_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lado</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lado</span> <span class="o">=</span> <span class="n">lado</span>
+
+    <span class="k">def</span> <span class="nf">obtener_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lado</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="k">class</span> <span class="nc">Rectangulo</span><span class="p">(</span><span class="n">FiguraGeometrica</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">altura</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">altura</span> <span class="o">=</span> <span class="n">altura</span>
+
+    <span class="k">def</span> <span class="nf">obtener_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">altura</span>
+
+
+<span class="n">mi_rectangulo</span> <span class="o">=</span> <span class="n">Rectangulo</span><span class="p">(</span><span class="s2">"5"</span><span class="p">,</span> <span class="s2">"10"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Área del rectángulo: </span><span class="si">{</span><span class="n">mi_rectangulo</span><span class="o">.</span><span class="n">obtener_area</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1973bad7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Parte-2:-Preguntas-Conceptuales">Parte 2: Preguntas Conceptuales<a class="anchor-link" href="#Parte-2:-Preguntas-Conceptuales">¶</a></h3><ul>
+<li>Explica cómo la clase Gerente utiliza la herencia y el polimorfismo.</li>
+<li>Explica cómo la clase Rectangulo utiliza la herencia y el polimorfismo.</li>
+<li>¿Cuál es la diferencia clave entre el método calcular_sueldo en la clase base Empleado y en la clase derivada Gerente?</li>
+<li>¿Cuál es la diferencia clave entre el método obtener_area en la clase base FiguraGeometrica y en la clase derivada Rectangulo?</li>
+<li>Proporciona un ejemplo de un atributo que debería ser privado en los códigos anteriores y cómo se podría acceder a él mediante un método getter.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24d659ce">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Parte-3:-Agregando-c%C3%B3digo">Parte 3: Agregando código<a class="anchor-link" href="#Parte-3:-Agregando-c%C3%B3digo">¶</a></h3><ul>
+<li>Modifica la clase <code>FiguraGeometrica</code> para que sea una clase abstracta, donde el método <code>obtener_area</code> sea un método abstracto.</li>
+<li>Agrega una nueva clase llamada Circulo que herede de FiguraGeometrica. Implementa un método obtener_area específico para calcular el área de un círculo.</li>
+<li>Crea una función llamada <code>calcular_area_total</code> que acepte una lista de objetos de tipo <code>FiguraGeometrica</code> y devuelva la suma total de las áreas de todas las figuras.</li>
+<li>Prueba la función anterior con una lista de al menos 5 objetos de las clases FiguraGeométrica, Rectángulo y Círculo.</li>
+</ul>
+<h3 id="Entregables">Entregables<a class="anchor-link" href="#Entregables">¶</a></h3><p>Sube los archivos generados en este ejercicio con el prefijo <code>PA2_Grupo_E06NombreApellido</code>. La parte de código debe entregarse en un archivo con extensión <code>.py</code>.</p>
+<p><strong>Consideraciones:</strong></p>
+<ul>
+<li>No se revisará código que sea entregado en otros formatos que no correspondan con código de python, por ejemplo <code>.docx</code>, <code>.pdf</code>, <code>.png</code>, etc.</li>
+<li>En caso de que el código presente errores de ejecución, se penalizará la tarea con una deducción de hasta 50pts, dependiendo de la gravedad del error.</li>
+<li>En caso de que la/el estudiante utilice código o funciones no vistas en clase, deberá ser capaz de respaldar su código mediante una explicación verbal y/o escrita, en caso de que le sea requerida por la docente de la asignatura. De no cumplir con la explicación de forma satisfactoria, se anulará su trabajo y se pasará el reporte a la coordinación de la carrera.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b3b4c2e1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section></section>
 </div>
 </div>
 </main>
